@@ -7,66 +7,75 @@
  <RouterView></RouterView>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<style scoped lang='scss'>
+.app-header {
+  background: #fff;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+  .container {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    align-items: center;
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    width: 200px;
+
+    a {
+      display: block;
+      height: 132px;
+      width: 100%;
+      text-indent: -9999px;
+      background: url('@/assets/images/logo.png') no-repeat center 18px / contain;
+    }
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+
+  .search {
+    width: 170px;
+    height: 32px;
+    position: relative;
+    border-bottom: 1px solid #e7e7e7;
+    line-height: 32px;
+
+    .icon-search {
+      font-size: 18px;
+      margin-left: 5px;
+    }
+
+    input {
+      width: 140px;
+      padding-left: 5px;
+      color: #666;
+    }
   }
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+  .cart {
+    width: 50px;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
+    .curr {
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      position: relative;
+      display: block;
+
+      .icon-cart {
+        font-size: 22px;
+      }
+
+      em {
+        font-style: normal;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 1px 6px;
+        line-height: 1;
+        background: $helpColor;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 10px;
+        font-family: Arial;
+      }
+    }
   }
 }
 </style>
