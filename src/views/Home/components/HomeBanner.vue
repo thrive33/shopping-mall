@@ -1,81 +1,42 @@
 <script setup>
-import HomePanel from './HomePanel.vue'
-import { findNewAPI } from '@/apis/home'
-import { onMounted, ref } from 'vue'
-
-// 获取数据
-const newList = ref([])
-
-const getNewList = async () => {
-  const res = await findNewAPI()
-  newList.value = res.result
+import {getBannerAPI} from '@/apis/home'
+import { onMounted,ref } from 'vue';
+const bannerList=ref([])
+const getBanner=async ()=>{
+  const res=await getBannerAPI()
+  bannerList.value=res.result
 }
-
-onMounted(() => getNewList())
-
+onMounted(()=>{
+  getBanner()
+})
 </script>
 
+
+
 <template>
-  <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
-    <ul class="goods-list">
-      <li v-for="item in newList" :key="item.id">
-        <RouterLink :to="`/detail/${item.id}`">
-          <img :src="item.picture" alt="" />
-          <p class="name">{{ item.name }}</p>
-          <p class="price">&yen;{{ item.price }}</p>
-        </RouterLink>
-      </li>
-    </ul>
-  </HomePanel>
-  <!-- 下面是插槽主体内容模版
-  <ul class="goods-list">
-    <li v-for="item in newList" :key="item.id">
-      <RouterLink to="/">
-        <img :src="item.picture" alt="" />
-        <p class="name">{{ item.name }}</p>
-        <p class="price">&yen;{{ item.price }}</p>
-      </RouterLink>
-    </li>
-  </ul>
-  -->
+  <div class="home-banner">
+    <el-carousel height="500px">
+      <el-carousel-item v-for="item in bannerList" :key="item.id">
+        <img :src="item.imgUrl" alt="">
+      </el-carousel-item>
+    </el-carousel>
+  </div>
 </template>
 
 
+
 <style scoped lang='scss'>
-.goods-list {
-  display: flex;
-  justify-content: space-between;
-  height: 406px;
+.home-banner {
+  width: 1240px;
+  height: 500px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 98;
 
-  li {
-    width: 306px;
-    height: 406px;
-
-    background: #f0f9f4;
-    transition: all .5s;
-
-    &:hover {
-      transform: translate3d(0, -3px, 0);
-      box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
-    }
-
-    img {
-      width: 306px;
-      height: 306px;
-    }
-
-    p {
-      font-size: 22px;
-      padding-top: 12px;
-      text-align: center;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .price {
-      color: $priceColor;
-    }
+  img {
+    width: 100%;
+    height: 500px;
   }
 }
 </style>

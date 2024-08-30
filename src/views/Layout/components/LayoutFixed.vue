@@ -1,6 +1,6 @@
 <script setup>
-import LayoutHeaderUl from './LayoutHeaderUl.vue'
-// vueUse
+import LayoutHeaderUI from './LayoutHeaderUI.vue'
+
 import { useScroll } from '@vueuse/core'
 const { y } = useScroll(window)
 
@@ -13,7 +13,7 @@ const { y } = useScroll(window)
       <RouterLink class="logo" to="/" />
       <!-- 导航区域 -->
 
-      <LayoutHeaderUl />
+      <LayoutHeaderUI />
       <div class="right">
         <RouterLink to="/">品牌</RouterLink>
         <RouterLink to="/">专题</RouterLink>

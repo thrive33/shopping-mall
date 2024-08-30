@@ -5,6 +5,8 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { useCartStore } from '@/stores/cartStore'
+// import ImageView from '@/components/ImageView/index.vue'
+// import XtxSku from '@/components/XtxSku/index.vue'
 const cartStore = useCartStore()
 const goods = ref({})
 const route = useRoute()
@@ -76,7 +78,8 @@ const addCart = () => {
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-              <XtxImageView :image-list="goods.mainPictures" />
+               <XtxImageView :image-list="goods.mainPictures"></XtxImageView>
+              <!-- <XtxImageView :image-list="goods.mainPictures" /> -->
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>

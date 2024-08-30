@@ -1,5 +1,5 @@
 <script setup>
-import { useUserStore } from '@/stores/user';
+import { useUserStore } from '@/stores/userStore';
 import { useRouter } from 'vue-router';
 const userStore=useUserStore()
 const router=useRouter()
@@ -32,7 +32,7 @@ const confirm=()=>{
                     <li><a href="javascript:;">会员中心</a></li>
                 </template>
                 <template v-else>
-                    <li><a href="javascript:;">请先登录</a></li>
+                    <li><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
                     <li><a href="javascript:;">帮助中心</a></li>
                     <li><a href="javascript:;">关于我们</a></li>
                 </template>

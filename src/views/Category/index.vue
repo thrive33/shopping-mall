@@ -1,12 +1,21 @@
 <script setup>
-
+// import { getCategoryAPI } from '@/apis/category';
+// import { useRoute } from 'vue-router';
 import GoodsItem from '../Home/components/GoodsItem.vue'
 import { useBanner } from './composables/useBanner'
 import { useCategory } from './composables/useCategory'
 const { bannerList } = useBanner()
 const { categoryData } = useCategory()
-
-
+// import {onMounted, ref} from 'vue'
+// const route=useRoute()
+// const categoryData=ref([])
+// const getCategory= async ()=>{
+//   const res=await getCategoryAPI(route.params.id)
+//   categoryData.value=res.result
+// }
+// onMounted(()=>{
+//   getCategory()
+// })
 </script>
 
 <template>
